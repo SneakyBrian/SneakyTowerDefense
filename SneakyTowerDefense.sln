@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{473383
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SneakyTowerDefence.Azure.Web", "SneakyTowerDefence.Azure.Web\SneakyTowerDefence.Azure.Web.ccproj", "{4C9BC1CC-089F-4A07-A9A5-CA553EF18AB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{BCC3DDB0-D549-4088-B17B-FDA6C9EA7284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC3DDB0-D549-4088-B17B-FDA6C9EA7284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC3DDB0-D549-4088-B17B-FDA6C9EA7284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C9BC1CC-089F-4A07-A9A5-CA553EF18AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9BC1CC-089F-4A07-A9A5-CA553EF18AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9BC1CC-089F-4A07-A9A5-CA553EF18AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9BC1CC-089F-4A07-A9A5-CA553EF18AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
