@@ -10,26 +10,42 @@
 @section Scripts {
 
 <script type="text/javascript">
-    var stage;
-    var isMouseDown;
-    var currentShape;
-    var oldMidX, oldMidY, oldX, oldY;
-    var txt;
+    var stage, session, player, map;
 
     function init()
     {
-        txt = new createjs.Text("Click and Drag to Draw", "36px Arial", "#777777");
-        txt.x = 300;
-        txt.y = 200;
+
         stage = new createjs.Stage("gameCanvas");
         stage.autoClear = true;
-        stage.onMouseDown = handleMouseDown;
-        stage.onMouseUp = handleMouseUp;
+        //stage.onMouseDown = handleMouseDown;
+        //stage.onMouseUp = handleMouseUp;
 
-        createjs.Touch.enable(stage);
+        //createjs.Touch.enable(stage);
 
-        stage.addChild(txt);
+        player = { health: 20 };
+
+        map = new game.Map.Map({ enemyStart: { row: 5, column: 0 }, enemyTarget: { row: 5, column: 20 } }, stage, 9, 21);
+
+        session = new game.Session(player, map,
+            [new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 5 })], 10, 30),
+            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 })], 10, 30),
+            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 5 })], 10, 30)]);
+
+        // add a cannon tower
+        session.addTower(new game.Tower(session, { name: "Cannon Tower", minLevel: 1, cost: 5 },
+                                        new game.Weapons.Cannon(session, {},
+                                            new game.Weapons.Ammo.CannonAmmo({ damage: 1, speed: 10 })),
+                                        map.getTile(5, 10)));
+
+        session.update();
         stage.update();
+
         createjs.Ticker.addListener(window);
     }
 
@@ -40,46 +56,17 @@
 
     function tick()
     {
-        if (isMouseDown)
-        {
-            var pt = new createjs.Point(stage.mouseX, stage.mouseY);
-            var midPoint = new createjs.Point(oldX + pt.x >> 1, oldY + pt.y >> 1);
-            currentShape.graphics.moveTo(midPoint.x, midPoint.y);
-            currentShape.graphics.curveTo(oldX, oldY, oldMidX, oldMidY);
-
-            oldX = pt.x;
-            oldY = pt.y;
-
-            oldMidX = midPoint.x;
-            oldMidY = midPoint.y;
-
-            stage.update();
-        }
+        session.update();
+        stage.update();
     }
 
-    function handleMouseDown()
-    {
-        isMouseDown = true;
-        stage.removeChild(txt);
+//    function handleMouseDown()
+//    {
+//    }
 
-        var s = new createjs.Shape();
-        oldX = stage.mouseX;
-        oldY = stage.mouseY;
-        oldMidX = stage.mouseX;
-        oldMidY = stage.mouseY;
-        var g = s.graphics;
-        var thickness = Math.random() * 30 + 10 | 0;
-        g.setStrokeStyle(thickness + 1, 'round', 'round');
-        var color = createjs.Graphics.getRGB(Math.random() * 255 | 0, Math.random() * 255 | 0, Math.random() * 255 | 0);
-        g.beginStroke(color);
-        stage.addChild(s);
-        currentShape = s;
-    }
-
-    function handleMouseUp()
-    {
-        isMouseDown = false;
-    }
+//    function handleMouseUp()
+//    {
+//    }
 
     $(function () { init(); });
 

@@ -38,6 +38,23 @@ namespace SneakyTowerDefense.Mvc.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            //add the game js as a bundle
+            bundles.Add(new ScriptBundle("~/bundles/game").Include(
+                "~/Scripts/Game/Support.js",
+                "~/Scripts/Game/Session.js",
+                "~/Scripts/Game/Tower.js",
+                "~/Scripts/Game/Weapons/Weapon.js",
+                "~/Scripts/Game/Weapons/Cannon.js",
+                "~/Scripts/Game/Weapons/Ammo/Ammo.js",
+                "~/Scripts/Game/Weapons/Ammo/CannonAmmo.js",
+                "~/Scripts/Game/Map/Map.js",
+                "~/Scripts/Game/Map/Tile.js",
+                "~/Scripts/Game/Enemies/Wave.js",
+                "~/Scripts/Game/Enemies/Enemy.js",
+                "~/Scripts/Game/Enemies/Bomber.js",
+                "~/Scripts/Game/Enemies/Tank.js"
+                ));
         }
     }
 }
