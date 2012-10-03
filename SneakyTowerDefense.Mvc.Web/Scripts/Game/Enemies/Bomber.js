@@ -41,8 +41,8 @@
             //calculate where we will be at the end of this update
             var futurePosition =
             {
-                x: this.x + (direction.x * speed),
-                y: this.y + (direction.y * speed)
+                x: this.x + (direction.x * this.speed),
+                y: this.y + (direction.y * this.speed)
             };
 
             //calculate whether we have hit our target
