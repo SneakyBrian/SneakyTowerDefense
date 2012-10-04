@@ -54,18 +54,23 @@
         var closestEnemy = null;
         var closestDistance = 999999999999999;
 
-        for (var i = 0; i < session.currentWave.getNumChildren(); i++)
+        //if the wave is alive and not waiting to spawn
+        if (session.currentWave.isAlive && session.currentWave.spawnDelay <= 0)
         {
-            var enemy = session.currentWave.getChildAt(i);
-
-            if (this.canTarget(enemy))
+            var numEnemies = session.currentWave.getNumChildren();
+            for (var i = 0; i < numEnemies; i++)
             {
-                var distance = game.Support.getDistance(this, enemy);
+                var enemy = session.currentWave.getChildAt(i);
 
-                if (distance < closestDistance)
+                if (this.canTarget(enemy))
                 {
-                    closestEnemy = enemy;
-                    closestDistance = distance;
+                    var distance = game.Support.getDistance(this, enemy);
+
+                    if (distance < closestDistance)
+                    {
+                        closestEnemy = enemy;
+                        closestDistance = distance;
+                    }
                 }
             }
         }
