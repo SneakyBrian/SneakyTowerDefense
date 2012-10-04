@@ -9,10 +9,19 @@
 
         this.ammo.setWeapon(this);
 
+        this.maxRange = data.maxRange;
+
         //draw ourselves (red triangle)
 
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0));
         this.graphics.drawPolyStar(0, 0, 5, 3, 0, -90);
+
+        //draw our range
+
+        this.graphics.setStrokeStyle(1);
+        this.graphics.beginStroke(createjs.Graphics.getRGB(0, 0, 0));
+        this.graphics.beginFill(createjs.Graphics.getRGB(64, 64, 64, 0.2));
+        this.graphics.drawCircle(0, 0, data.maxRange);
 
         console.log("cannon constructed");
     }
@@ -39,8 +48,11 @@
 
     Cannon.prototype.canTarget = function (enemy)
     {
-        return enemy.isLandBased;
+        //cannon can target air and ground!
+        return true;
     }
+
+    Cannon.prototype.isInRange = function (distanceToTarget) { return distanceToTarget <= this.maxRange; }
 
     //ensure that we have set up namespace
     window.game = window.game || {};

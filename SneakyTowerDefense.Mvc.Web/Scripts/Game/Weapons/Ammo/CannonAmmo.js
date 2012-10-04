@@ -47,10 +47,10 @@
             };
 
             //calculate whether we have hit the enemy
-            if (window.game.Support.intersects(target, this, futurePosition))
+            if (window.game.Support.intersects(this.target, this, futurePosition))
             {
                 //if we have hit the enemy, do damage
-                target.health -= this.data.damage;
+                this.target.health -= this.data.damage;
 
                 //we are now dead
                 this.isAlive = false;

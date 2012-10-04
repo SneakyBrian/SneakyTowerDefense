@@ -16,9 +16,6 @@
         //weapon contains details for the weapon such as range, damage, reload time
         this.weapon = weapon;
 
-        //connect the weapon to this tower
-        this.weapon.setTower(this);
-
         //record our tile position
         this.tile = tile;
 
@@ -35,6 +32,9 @@
 
         this.x = centre.x;
         this.y = centre.y;
+
+        //now we have a position we can connect the weapon to this tower
+        this.weapon.setTower(this);
 
         console.log("tower constructed at " + this.x + "," + this.y);
     }

@@ -30,13 +30,35 @@
 
         intersects: function (shape, fromVector, toVector)
         {
-            for (var x = fromVector.x; x <= toVector.x; x++)
+            var direction = this.getDirection(fromVector, toVector);
+
+            for (var i = 0; i <= direction.distance; i++)
             {
-                for (var y = fromVector.y; y <= toVector.y; y++)
+                var x = fromVector.x + (direction.x * i);
+                var y = fromVector.y + (direction.y * i);
+
+                //direct postion check
+                if (Math.round(x) == Math.round(shape.x) &&
+                    Math.round(y) == Math.round(shape.y))
                 {
-                    if (shape.hitTest(x, y))
-                        return true;
+                    return true;
                 }
+                //else if we have a width and height
+                else if (shape.width !== undefined &&
+                        shape.height !== undefined)
+                {
+                    //simple rect bounds checking
+                    if (x >= shape.x &&
+                        x <= shape.x + shape.width &&
+                        y >= shape.y &&
+                        y <= shape.y + shape.height)
+                    {
+                        return true;
+                    }
+                }
+                //else use the hit test (not sure this is working right)
+                else if (shape.hitTest(x, y))
+                    return true;
             }
 
             return false;

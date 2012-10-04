@@ -13,10 +13,16 @@
         this.x = this.tower.x;
         this.y = this.tower.y;
 
+        //make sure that we are on the map!
+        this.tower.session.map.addChild(this);
+        this.tower.session.map.addChild(this.ammo);
+
         console.log("weapon constructed at " + this.x + "," + this.y)
     }
 
     Weapon.prototype.ammo = null;
+
+    Weapon.prototype.maxRange = 0;
 
     Weapon.prototype.canFire = function () { throw new Error("Need to implement!"); }
 
@@ -48,10 +54,14 @@
                 console.log("enemy is in range of weapon, firing");
 
                 //open fire!
-                this.ammo.fireAt(enemy);
+                this.ammo.fireAt(nearest.enemy);
             }
 
             //TODO: Rotate to face enemy (even if we didn't acually fire!)
+        }
+        else
+        {
+            console.log("weapon has no enemy to target");
         }
     }
 
