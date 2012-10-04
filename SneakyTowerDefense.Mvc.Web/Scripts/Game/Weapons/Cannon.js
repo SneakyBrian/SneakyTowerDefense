@@ -7,6 +7,8 @@
         this.data = data;
         this.ammo = ammo;
 
+        this.ammo.setWeapon(this);
+
         //draw ourselves (red triangle)
 
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0));

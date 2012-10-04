@@ -23,15 +23,12 @@
 
     Bomber.prototype = new window.game.Enemies.Enemy();
 
+    Bomber.prototype.baseUpdate = Bomber.prototype.update;
+
     Bomber.prototype.update = function ()
     {
-        if (this.spawnTime > 0)
-        {
-            this.spawnTime--;
-            return;
-        }
-        //if we are still alive
-        else if (this.health > 0)
+        //if we are spawned and still alive
+        if (this.spawnTime <= 0 && this.health > 0)
         {
             this.visible = true;
 
@@ -60,6 +57,8 @@
             this.x = futurePosition.x;
             this.y = futurePosition.y;
         }
+
+        this.baseUpdate();
     }
 
 

@@ -19,6 +19,8 @@
 
     Tank.prototype = new window.game.Enemies.Enemy();
 
+    Tank.prototype.baseUpdate = Tank.prototype.update;
+
     Tank.prototype.update = function ()
     {
         //TODO: move towards target

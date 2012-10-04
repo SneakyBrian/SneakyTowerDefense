@@ -14,7 +14,20 @@
 
     Enemy.prototype.session = null;
 
-    Enemy.prototype.update = function () { throw new Error("Need to implement!"); }
+    Enemy.prototype.update = function ()
+    {
+        if (this.spawnTime > 0)
+        {
+            this.spawnTime--;
+
+            //if we are now spawning
+            if (this.spawnTime == 0)
+            {
+                this.x = this.session.map.enemyStartTile.x;
+                this.y = this.session.map.enemyStartTile.y;
+            }
+        }
+    }
 
     Enemy.prototype.setSession = function (session) { this.session = session; }
 

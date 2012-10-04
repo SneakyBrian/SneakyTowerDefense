@@ -7,6 +7,8 @@
         //data about the cannon ammo - how fast it moves, 
         this.data = data;
 
+        this.weapon = weapon;
+
         this.visible = false;
 
         //draw our graphics
@@ -23,6 +25,9 @@
         this.target = enemy;
         this.isAlive = true;
         this.visible = true;
+
+        this.x = this.weapon.x;
+        this.y = this.weapon.y;
     }
 
     CannonAmmo.prototype.update = function ()
