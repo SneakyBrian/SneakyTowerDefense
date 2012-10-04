@@ -14,7 +14,7 @@
         //draw ourselves (red triangle)
 
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0));
-        this.graphics.drawPolyStar(0, 0, 5, 3, 0, -90);
+        this.graphics.drawPolyStar(0, 0, 10, 3, 0, -90);
 
         //draw our range
 
@@ -34,6 +34,9 @@
 
     Cannon.prototype.update = function ()
     {
+        if (this.cacheCanvas !== null)
+            this.cache(0 - this.maxRange, 0 - this.maxRange, this.maxRange, this.maxRange);
+
         if (this.currentReloadTime > 0)
             this.currentReloadTime--;
 

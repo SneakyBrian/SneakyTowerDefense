@@ -13,6 +13,8 @@
         this.graphics.beginFill(createjs.Graphics.getRGB(0, 0, 255));
         this.graphics.drawCircle(0, 0, 3);
 
+        
+
         console.log("CannonAmmo constructed");
     }
 
@@ -34,6 +36,9 @@
 
     CannonAmmo.prototype.update = function ()
     {
+        if (this.cacheCanvas !== null)
+            this.cache(-3, -3, 3, 3);
+
         if (this.isAlive)
         {
             //which direction do we need to be heading to hit this target
@@ -59,7 +64,7 @@
                 console.log("cannon ammo hit target");
             }
 
-            console.log("cannon ammo moving from " + this.x + "," + this.y + " to " + futurePosition.x + "," + futurePosition.y );
+            console.log("cannon ammo moving from " + this.x + "," + this.y + " to " + futurePosition.x + "," + futurePosition.y);
 
             //move to our correct position
             this.x = futurePosition.x;

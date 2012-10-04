@@ -39,20 +39,20 @@
         map = new game.Map.Map({ enemyStart: { row: 5, column: 0 }, enemyTarget: { row: 5, column: 20 } }, stage, 9, 21);
 
         session = new game.Session(player, map,
-            [new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 5, speed: 10 })], 10, 5),
-            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 })], 10, 5),
-            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 }),
-                                    new game.Enemies.Bomber({ maxHealth: 5, speed: 10 })], 10, 5)]);
+            [new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 3 })], 20, 5),
+            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 })], 20, 5),
+            new game.Enemies.Wave([new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
+                                    new game.Enemies.Bomber({ maxHealth: 10, speed: 3 })], 20, 5)]);
 
         // add a cannon tower
         session.addTower(new game.Tower(session, { name: "Cannon Tower", minLevel: 1, cost: 5 },
                                         new game.Weapons.Cannon(session, { maxRange: 75 },
-                                            new game.Weapons.Ammo.CannonAmmo({ damage: 3, speed: 20 })),
+                                            new game.Weapons.Ammo.CannonAmmo({ damage: 3, speed: 7 })),
                                         map.getTile(5, 10)));
 
         session.update();

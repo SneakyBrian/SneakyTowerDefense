@@ -21,12 +21,12 @@
 
         //draw our basic tower (just a circle really)
 
-        var radius = (this.tile.getSize().w - 1) / 2;
+        this.radius = (this.tile.getSize().w - 3) / 2;
 
         this.graphics.setStrokeStyle(1);
         this.graphics.beginStroke(createjs.Graphics.getRGB(0, 0, 0));
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 255));
-        this.graphics.drawCircle(0, 0, radius);
+        this.graphics.drawCircle(0, 0, this.radius);
 
         var centre = this.tile.getCentre();
 
@@ -76,6 +76,9 @@
     //update function, called by the game engine every game update cycle
     Tower.prototype.update = function ()
     {
+        if (this.cacheCanvas !== null)
+            this.cache(0 - this.radius, 0 - this.radius, this.radius, this.radius);
+
         this.weapon.update();
 
         if (this.weapon.canFire())

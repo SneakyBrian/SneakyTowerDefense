@@ -14,6 +14,8 @@
         this.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0, 0.2));
         this.graphics.rect(0, 0, width, height);
 
+        this.cache(0, 0, width, height);
+
         this.x = column * width;
         this.y = row * height;
 

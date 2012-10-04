@@ -29,6 +29,9 @@
 
     Bomber.prototype.update = function ()
     {
+        if (this.cacheCanvas !== null)
+            this.cache(-10, -10, 10, 10);
+
         //if we are spawned and still alive
         if (this.spawnTime <= 0 && this.health > 0)
         {
