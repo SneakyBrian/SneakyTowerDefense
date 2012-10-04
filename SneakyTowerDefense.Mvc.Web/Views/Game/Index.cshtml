@@ -1,9 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Game_Layout.cshtml";
+    ViewBag.Title = "Game";
 }
 
-<h2>Index</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Here it is! The game itself!
+            </p>
+        </div>
+    </section>
+}
 
 <canvas id="gameCanvas" width="960" height="400"></canvas>
 
