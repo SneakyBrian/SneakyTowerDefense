@@ -13,13 +13,16 @@
         this.graphics.beginStroke(createjs.Graphics.getRGB(0, 0, 0));
         this.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0, 0.2));
         this.graphics.rect(0, 0, width, height);
+
+        this.x = column * width;
+        this.y = row * height;
     }
 
     Tile.prototype = new createjs.Shape();
 
     Tile.prototype.getSize = function () { return { w: this.width, h: this.height }; }
 
-    Tile.prototype.getCentre = function () { return { x: this.x, y: this.y }; }
+    Tile.prototype.getCentre = function () { return { x: this.x + (this.width / 2), y: this.y + (this.height / 2) }; }
 
     window.game = window.game || {};
     window.game.Map = window.game.Map || {};
