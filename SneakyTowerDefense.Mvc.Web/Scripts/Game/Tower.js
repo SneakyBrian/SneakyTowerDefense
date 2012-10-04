@@ -28,7 +28,7 @@
 
         this.graphics.setStrokeStyle(1);
         this.graphics.beginStroke(createjs.Graphics.getRGB(0, 0, 0));
-        this.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0));
+        this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 255));
         this.graphics.drawCircle(0, 0, radius);
 
         var centre = this.tile.getCentre();
