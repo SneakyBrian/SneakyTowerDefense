@@ -1,7 +1,7 @@
 ﻿
 (function (window, undefined)
 {
-    function Ammo() { }
+    function Ammo() { console.log("Ammo constructed"); }
 
     Ammo.prototype = new createjs.Shape();
 

@@ -1,7 +1,7 @@
 ﻿
 (function (window, undefined)
 {
-    function Enemy() { }
+    function Enemy() { console.log("enemy constructed"); }
 
     Enemy.prototype = new createjs.Shape();
 
@@ -18,6 +18,8 @@
     {
         if (this.spawnTime > 0)
         {
+            console.log("enemy spawning in " + this.spawnTime);
+
             this.spawnTime--;
 
             //if we are now spawning
@@ -25,6 +27,8 @@
             {
                 this.x = this.session.map.enemyStartTile.x;
                 this.y = this.session.map.enemyStartTile.y;
+
+                console.log("enemy spawned at " + this.x + "," + this.y);
             }
         }
     }

@@ -13,6 +13,8 @@
         this.isAlive = true;
 
         this.spawnDelay = spawnDelay;
+
+        console.log("wave constructed");
     }
 
     Wave.prototype = new createjs.Container();
@@ -45,10 +47,14 @@
             if (this.getNumChildren() === 0)
             {
                 this.isAlive = false;
+
+                console.log("wave dead");
             }
         }
         else
         {
+            console.log("wave spawning in " + this.spawnDelay);
+
             this.spawnDelay--;
         }
     }

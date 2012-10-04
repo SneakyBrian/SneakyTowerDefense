@@ -12,6 +12,8 @@
         //draw our graphics
         this.graphics.beginFill(createjs.Graphics.getRGB(0, 0, 255));
         this.graphics.drawCircle(0, 0, 3);
+
+        console.log("CannonAmmo constructed");
     }
 
     CannonAmmo.prototype = new window.game.Weapons.Ammo.Ammo();
@@ -26,6 +28,8 @@
 
         this.x = this.weapon.x;
         this.y = this.weapon.y;
+
+        console.log("cannon ammo (" + this.x + "," + this.y + ") fired at enemy (" + enemy.x + "," + enemy.y + ")");
     }
 
     CannonAmmo.prototype.update = function ()
@@ -51,7 +55,11 @@
                 //we are now dead
                 this.isAlive = false;
                 this.visible = false;
+
+                console.log("cannon ammo hit target");
             }
+
+            console.log("cannon ammo moving from " + this.x + "," + this.y + " to " + futurePosition.x + "," + futurePosition.y );
 
             //move to our correct position
             this.x = futurePosition.x;

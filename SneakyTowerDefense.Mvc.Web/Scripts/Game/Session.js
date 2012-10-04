@@ -8,6 +8,8 @@
         this.waves = waves;
 
         this.moveToNextWave();
+
+        console.log("session constructed");
     }
 
     Session.prototype = {
@@ -20,10 +22,14 @@
 
         reportTargetAttack: function ()
         {
+            console.log("player hit!");
+
             this.player.health--;
 
             if (this.player.health <= 0)
             {
+                console.log("player dead!");
+
                 //Game over man, game over
 
                 //TODO: Handle end of game
@@ -46,6 +52,8 @@
 
             if (!this.currentWave.isAlive)
             {
+                console.log("wave all dead");
+
                 this.map.removeChild(this.currentWave);
 
                 this.onWaveCompleted(this.currentWave);
@@ -53,6 +61,8 @@
                 //move on to next wave
                 if (!this.moveToNextWave())
                 {
+                    console.log("all waves defeated!");
+
                     //VICTORY!!!
                     this.onGameCompleted();
                 }

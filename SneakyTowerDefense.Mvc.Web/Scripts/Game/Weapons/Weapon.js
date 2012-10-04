@@ -12,6 +12,8 @@
         //set our position on the tower
         this.x = this.tower.x;
         this.y = this.tower.y;
+
+        console.log("weapon constructed at " + this.x + "," + this.y)
     }
 
     Weapon.prototype.ammo = null;
@@ -38,9 +40,13 @@
         //if we have an enemy to target
         if (nearest.enemy !== null)
         {
+            console.log("weapon has enemy to target");
+
             //if it is in range
             if (this.isInRange(nearest.distance))
             {
+                console.log("enemy is in range of weapon, firing");
+
                 //open fire!
                 this.ammo.fireAt(enemy);
             }

@@ -15,6 +15,8 @@
         this.graphics.beginStroke(createjs.Graphics.getRGB(0, 0, 0));
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 255, 0));
         this.graphics.drawRoundRect(0, 0, 10, 10, 3);
+
+        console.log("tank constructed");
     }
 
     Tank.prototype = new window.game.Enemies.Enemy();

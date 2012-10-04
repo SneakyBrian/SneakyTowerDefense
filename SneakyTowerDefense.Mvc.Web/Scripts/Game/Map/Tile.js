@@ -16,6 +16,8 @@
 
         this.x = column * width;
         this.y = row * height;
+
+        console.log("tile constructed at " + this.x + "," + this.y);
     }
 
     Tile.prototype = new createjs.Shape();

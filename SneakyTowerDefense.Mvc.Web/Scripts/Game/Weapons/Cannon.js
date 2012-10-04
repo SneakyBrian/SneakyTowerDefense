@@ -13,6 +13,8 @@
 
         this.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0));
         this.graphics.drawPolyStar(0, 0, 5, 3, 0, -90);
+
+        console.log("cannon constructed");
     }
 
     Cannon.prototype = new game.Weapons.Weapon();

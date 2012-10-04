@@ -35,12 +35,12 @@
 
         this.x = centre.x;
         this.y = centre.y;
+
+        console.log("tower constructed at " + this.x + "," + this.y);
     }
 
     //Tower derives from createjs.shape
     Tower.prototype = new createjs.Shape();
-
-
 
     //get the name of the tower
     Tower.prototype.getName = function () { return this.data.name; }
@@ -81,12 +81,6 @@
         if (this.weapon.canFire())
             this.weapon.targetAndFire();
     }
-
-
-
-
-
-
 
 
     //ensure that we have set up namespace

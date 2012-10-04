@@ -36,6 +36,8 @@
 
         //add the map to the stage
         stage.addChild(this);
+
+        console.log("map constructed");
     }
 
     Map.prototype = new createjs.Container();

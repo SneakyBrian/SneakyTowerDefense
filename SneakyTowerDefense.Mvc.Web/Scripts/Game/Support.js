@@ -15,8 +15,8 @@
             var distance = this.getDistance(fromShape, toShape);
 
             return {
-                x: (fromShape.x - toShape.x) / distance,
-                y: (fromShape.y - toShape.y) / distance,
+                x: (toShape.x - fromShape.x) / distance,
+                y: (toShape.y - fromShape.y) / distance,
                 distance: distance
             };
         },
@@ -42,5 +42,8 @@
             return false;
         }
     };
+
+    //make sure we have a console to log to
+    window.console = window.console || { log: function () { } }
 
 } (window));

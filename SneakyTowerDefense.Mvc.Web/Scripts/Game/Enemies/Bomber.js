@@ -19,6 +19,8 @@
 
         //hide this until we are ready to spawn
         this.visible = false;
+
+        console.log("bomber constructed");
     }
 
     Bomber.prototype = new window.game.Enemies.Enemy();
@@ -30,6 +32,8 @@
         //if we are spawned and still alive
         if (this.spawnTime <= 0 && this.health > 0)
         {
+            console.log("bomber update - spawned and healthy");
+
             this.visible = true;
 
             //which way to our target
@@ -43,8 +47,10 @@
             };
 
             //calculate whether we have hit our target
-            if (window.game.Support.intersects(this.session.enemyTarget, this, futurePosition))
+            if (window.game.Support.intersects(this.session.map.enemyTargetTile, this, futurePosition))
             {
+                console.log("bomber hit target!");
+
                 //if we have hit our target, notify the session
                 this.session.reportTargetAttack();
 
@@ -52,6 +58,8 @@
                 this.health = 0;
                 this.visible = false;
             }
+
+            console.log("bomber moving from " + this.x + "," + this.y + " to " + futurePosition.x + "," + futurePosition.y);
 
             //move to our correct position
             this.x = futurePosition.x;
