@@ -52,7 +52,7 @@
         // add a cannon tower
         session.addTower(new game.Tower(session, { name: "Cannon Tower", minLevel: 1, cost: 5 },
                                         new game.Weapons.Cannon(session, { maxRange: 75 },
-                                            new game.Weapons.Ammo.CannonAmmo({ damage: 3, speed: 7 })),
+                                            new game.Weapons.Ammo.CannonAmmo({ damage: 4, speed: 7 })),
                                         map.getTile(5, 10)));
 
         session.update();
