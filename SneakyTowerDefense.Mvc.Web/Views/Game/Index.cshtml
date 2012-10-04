@@ -49,11 +49,16 @@
                                     new game.Enemies.Bomber({ maxHealth: 10, speed: 3 }),
                                     new game.Enemies.Bomber({ maxHealth: 10, speed: 3 })], 20, 5)]);
 
-        // add a cannon tower
+        // add a couple of cannon towers
         session.addTower(new game.Tower(session, { name: "Cannon Tower", minLevel: 1, cost: 5 },
                                         new game.Weapons.Cannon(session, { maxRange: 75 },
                                             new game.Weapons.Ammo.CannonAmmo({ damage: 4, speed: 7 })),
-                                        map.getTile(5, 10)));
+                                        map.getTile(3, 9)));
+
+        session.addTower(new game.Tower(session, { name: "Cannon Tower", minLevel: 1, cost: 5 },
+                                        new game.Weapons.Cannon(session, { maxRange: 75 },
+                                            new game.Weapons.Ammo.CannonAmmo({ damage: 4, speed: 7 })),
+                                        map.getTile(5, 11)));
 
         session.update();
         stage.update();
