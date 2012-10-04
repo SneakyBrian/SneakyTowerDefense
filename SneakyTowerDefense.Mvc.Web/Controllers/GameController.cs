@@ -13,7 +13,7 @@ namespace SneakyTowerDefense.Mvc.Web.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "HTML5 + JS Tower Defence Game, powered by Windows Azure.";
+            ViewBag.Message = "HTML5 + JS Tower Defense Game, powered by Windows Azure.";
 
             return View();
         }
