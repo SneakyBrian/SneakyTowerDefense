@@ -7,8 +7,6 @@
         //data about the cannon ammo - how fast it moves, 
         this.data = data;
 
-        this.weapon = weapon;
-
         this.visible = false;
 
         //draw our graphics
